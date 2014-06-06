@@ -10,6 +10,7 @@ var express = require('express')
 
 var app = express();
 
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -45,12 +46,22 @@ app.get('/test', function(req, res){
 
 });
 
+app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By",' 3.2.1')
+  res.header("Content-Type", "application/json;charset=utf-8");
+  next();
+});
+
 app.all('/create_direct_pay_by_user', demo.create_direct_pay_by_user);
 app.all('/create_direct_bankpay_by_user', demo.create_direct_bankpay_by_user);
 app.all('/refund_fastpay_by_platform_pwd', demo.refund_fastpay_by_platform_pwd);
 app.all('/create_partner_trade_by_buyer', demo.create_partner_trade_by_buyer);
 app.all('/send_goods_confirm_by_platform', demo.send_goods_confirm_by_platform);
 app.all('/trade_create_by_buyer', demo.trade_create_by_buyer);
+app.all('/alipay_wap_trade_create_direct', demo.alipay_wap_trade_create_direct);
 
 
 http.createServer(app).listen(app.get('port'), function(){

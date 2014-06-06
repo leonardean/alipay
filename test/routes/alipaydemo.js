@@ -15,8 +15,25 @@ alipay.on('verify_fail', function(){console.log('emit verify_fail')})
 	.on('trade_create_by_buyer_wait_buyer_confirm_goods', function(out_trade_no, trade_no){})
 	.on('trade_create_by_buyer_trade_finished', function(out_trade_no, trade_no){});	
 	
-	
+exports.alipay_wap_trade_create_direct = function (req, res) {
+  console.log('request: ', req.body)
+  if (req.route.method == 'get') {
+    res.render('alipay_wap_trade_create_direct');
+  }else if(req.route.method == 'post'){
+    var data = {
+      subject: req.body.subject,
+      out_trade_no: req.body.out_trade_no,
+      total_fee: req.body.total_fee,
+      seller_account_name: 'yoyo@extensivepro.com',
+      call_back_url: 'k.fankahui.com'
+    };
+
+    alipay.alipay_wap_trade_create_direct(data, res);
+  }
+}
+
 exports.create_direct_pay_by_user = function(req, res){
+  console.log('request: ', req)
 	if(req.route.method == 'get'){
 		res.render('create_direct_pay_by_user'); 
 	}
