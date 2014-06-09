@@ -1,6 +1,6 @@
 var config = {
-    partner:'2088411764311875' //合作身份者id，以2088开头的16位纯数字
-    ,key: 'zu6kxjh0jpjv03ntxkwspukvouti0i3r'//'pkcs8MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwohxz6lOtHcNNexBQTTzCtySGH8Ky3sQPQfUxVVvCqAjdI/6ovngJdoK7S2WgfELlhD77czuNHdIDinoVGNSqfGTvI3BIdkZPez1ugWY/u/yK4RX3rURe6otl5TFGyLeTGcFirI9XPZ480J/YkiFh0nR8mXnojc6z73Poxb1NgxHcO8pbkXvAD83HaLVWC90ZHnMyGXPzF06rD7ocEtaQKAaq/ers4qY0UxX3khQoQLDSeXKnvWWz7Q+jEYukB8kgaM+Q2mBp+lIG0L9XgZnipBKGhFNijLTefveYIgb41uT1cYpJef8g+9ipGIZhZJ6k/of9iXcR8jecmUBrvuRcQIDAQAB'//安全检验码，以数字和字母组成的32位字符
+    partner: process.env.ALIPAY_PARTNER //合作身份者id，以2088开头的16位纯数字
+    ,key: process.env.ALIPAY_KEY//'pkcs8MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwohxz6lOtHcNNexBQTTzCtySGH8Ky3sQPQfUxVVvCqAjdI/6ovngJdoK7S2WgfELlhD77czuNHdIDinoVGNSqfGTvI3BIdkZPez1ugWY/u/yK4RX3rURe6otl5TFGyLeTGcFirI9XPZ480J/YkiFh0nR8mXnojc6z73Poxb1NgxHcO8pbkXvAD83HaLVWC90ZHnMyGXPzF06rD7ocEtaQKAaq/ers4qY0UxX3khQoQLDSeXKnvWWz7Q+jEYukB8kgaM+Q2mBp+lIG0L9XgZnipBKGhFNijLTefveYIgb41uT1cYpJef8g+9ipGIZhZJ6k/of9iXcR8jecmUBrvuRcQIDAQAB'//安全检验码，以数字和字母组成的32位字符
     ,seller_email:'yoyo@extensivepro.com' //卖家支付宝帐户 必填
     ,host:'http://localhost:3000/'
 	,cacert:'cacert.pem'//ca证书路径地址，用于curl中ssl校验
