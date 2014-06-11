@@ -25,7 +25,8 @@ exports.alipay_wap_trade_create_direct = function (req, res) {
       out_trade_no: req.body.out_trade_no,
       total_fee: req.body.total_fee,
       seller_account_name: 'yoyo@extensivepro.com',
-      call_back_url: 'http://k.fankahui.com/#/app/hot_seller?merchantID=e20dccdf039b3874'
+      call_back_url: 'http://k.fankahui.com/#/app/hot_seller?merchantID=e20dccdf039b3874',
+      notify_url: 'http://service.fankahui.com:4200/alipay_wap_trade_create_direct_notify_url'
     };
 
     alipay.alipay_wap_trade_create_direct(data, res);
