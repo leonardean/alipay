@@ -6,7 +6,8 @@
 var express = require('express')
   , demo = require('./routes/alipaydemo')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , md5 = require('MD5');
 
 var app = express();
 
@@ -55,6 +56,14 @@ app.all('*', function(req, res, next) {
   next();
 });
 
+var sign_validate = function(req, res){
+  var plain_text = req.originalUrl.split('?')[1] + process.env.ALIPAY_KEY;
+  console.log(plain_text);
+  res.send(md5(plain_text));
+  console.log(md5(plain_text));
+}
+
+app.all('/sign_validate', sign_validate);
 app.all('/create_direct_pay_by_user', demo.create_direct_pay_by_user);
 app.all('/create_direct_bankpay_by_user', demo.create_direct_bankpay_by_user);
 app.all('/refund_fastpay_by_platform_pwd', demo.refund_fastpay_by_platform_pwd);

@@ -11,7 +11,8 @@
     "dependencies": {
         "xmldom": "0.1.13",
         "request": "*",
-        "xml2json": "*"
+        "xml2json": "*",
+        "MD5": "*"
     },
     "devDependencies": {
         "express": "3.0.3",
